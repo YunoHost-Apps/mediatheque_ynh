@@ -1,0 +1,38 @@
+#!/bin/bash
+# Installation Médiathèque — paquet YunoHost
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# PARAMÈTRES PHP (imports CSV / ZIP, sauvegarde base)
+#=================================================
+ynh_app_setting_set --key=php_upload_max_filesize --value=128M
+ynh_app_setting_set --key=php_post_max_size --value=128M
+
+ynh_script_progression "Téléchargement des sources de l’application…"
+
+ynh_setup_source --dest_dir="$install_dir"
+chown -R "$app:www-data" "$install_dir"
+
+#=================================================
+# DONNÉES PERSISTANTES + BASE SQLite
+#=================================================
+ynh_script_progression "Initialisation des données…"
+
+mediatheque_bootstrap_data_files
+mediatheque_run_migrate
+mediatheque_apply_install_seed
+
+#=================================================
+# CONFIGURATION SYSTÈME (PHP-FPM + NGINX)
+#=================================================
+ynh_script_progression "Configuration PHP-FPM et NGINX…"
+
+ynh_config_add_phpfpm
+ynh_config_add_nginx
+
+#=================================================
+# FIN
+#=================================================
+ynh_script_progression "Installation de ${app} terminée — ouvrez https://${domain}${path}premier-compte.php pour créer l’administrateur."

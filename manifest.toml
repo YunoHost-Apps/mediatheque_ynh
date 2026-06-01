@@ -1,0 +1,63 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/main/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "mediatheque"
+name = "Médiathèque"
+description.fr = "Médiathèque personnelle : films, envies, magazines, jeux vidéo, livres, BD…"
+description.en = "Personal media library: movies, wishlist, magazines, video games, books, comics…"
+
+version = "1.0.5~ynh1"
+
+maintainers = ["Stéphane MATER"]
+
+[upstream]
+license = "GPL-3.0-or-later"
+website = "https://github.com/daryl40000/Moncine"
+code = "https://github.com/daryl40000/Moncine"
+
+[integration]
+yunohost = ">= 12.1.17"
+helpers_version = "2.1"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "200M"
+ram.build = "50M"
+ram.runtime = "100M"
+
+[install]
+
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+    [resources.sources.main]
+    url = "https://github.com/daryl40000/Moncine/archive/refs/tags/1.0.5.tar.gz"
+    sha256 = "41d7122e591a071cfe754fc8c217fb954afab42d0d4ed7b4630c5215db3b2250"
+    autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+    subdirs = ["posters", "media", "sessions", "auth_rate_limit", "install_seed"]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "php8.4-fpm, php8.4-sqlite3, php8.4-mbstring, php8.4-intl, php8.4-curl, php8.4-zip"

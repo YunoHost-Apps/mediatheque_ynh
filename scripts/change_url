@@ -1,0 +1,15 @@
+#!/bin/bash
+# Changement de domaine ou de chemin — paquet YunoHost Médiathèque
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_script_progression "Mise à jour de l’URL de ${app}…"
+
+# MONCINE_BASE_URL est défini dans conf/extra_php-fpm.conf (https://__DOMAIN____PATH__)
+ynh_config_add_phpfpm
+ynh_config_add_nginx
+
+mediatheque_fix_data_permissions
+
+ynh_script_progression "Changement d’URL terminé."

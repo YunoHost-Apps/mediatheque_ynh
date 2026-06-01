@@ -1,0 +1,43 @@
+#!/bin/bash
+# Mise à jour Médiathèque — paquet YunoHost
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# COMPATIBILITÉ
+#=================================================
+ynh_app_setting_set_default --key=php_upload_max_filesize --value=128M
+ynh_app_setting_set_default --key=php_post_max_size --value=128M
+
+#=================================================
+# MISE À JOUR DU CODE
+#=================================================
+ynh_script_progression "Mise à jour des sources de l’application…"
+
+# data_dir est géré par la ressource YunoHost — ne pas écraser moncine.db ni les affiches.
+ynh_setup_source --dest_dir="$install_dir" --full_replace
+chown -R "$app:www-data" "$install_dir"
+
+#=================================================
+# MIGRATIONS SQL
+#=================================================
+ynh_script_progression "Application des migrations SQL…"
+
+mediatheque_bootstrap_data_files
+mediatheque_run_migrate
+
+#=================================================
+# RECHARGEMENT DE LA CONFIG SYSTÈME
+#=================================================
+ynh_script_progression "Reconfiguration PHP-FPM et NGINX…"
+
+ynh_config_add_phpfpm
+ynh_config_add_nginx
+
+mediatheque_fix_data_permissions
+
+#=================================================
+# FIN
+#=================================================
+ynh_script_progression "Mise à jour de ${app} terminée."
