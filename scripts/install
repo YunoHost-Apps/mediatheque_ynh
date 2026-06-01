@@ -4,12 +4,6 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-#=================================================
-# PARAMÈTRES PHP (imports CSV / ZIP, sauvegarde base)
-#=================================================
-ynh_app_setting_set --key=php_upload_max_filesize --value=400M
-ynh_app_setting_set --key=php_post_max_size --value=400M
-
 ynh_script_progression "Téléchargement des sources de l’application…"
 
 ynh_setup_source --dest_dir="$install_dir"
@@ -29,6 +23,7 @@ mediatheque_apply_install_seed
 #=================================================
 ynh_script_progression "Configuration PHP-FPM et NGINX…"
 
+mediatheque_configure_php_limits
 ynh_config_add_phpfpm
 ynh_config_add_nginx
 

@@ -31,4 +31,10 @@ Définies dans `/etc/php/__PHP_VERSION__/fpm/pool.d/__APP__.conf` :
 | `MONCINE_TRUST_PROXY` | `1` — IP client derrière Nginx YunoHost |
 | `MONCINE_MAIL_FROM` | Expéditeur des e-mails (`mediatheque@…`) |
 
+## Uploads volumineux (PDF magazines)
+
+Le paquet configure **400 Mo** pour `upload_max_filesize` / `post_max_size`, **512 Mo** pour `memory_limit`, et Nginx `client_max_body_size` à **400 Mo** (l’application accepte jusqu’à **350 Mo** par fichier).
+
+Après une mise à jour du paquet, vérifiez dans `/etc/php/*/fpm/pool.d/__APP__.conf` que ces valeurs sont bien appliquées.
+
 Documentation upstream : [Moncine sur GitHub](https://github.com/daryl40000/Moncine)

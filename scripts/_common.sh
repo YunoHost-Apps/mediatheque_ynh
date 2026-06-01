@@ -4,6 +4,21 @@
 # L’application PHP upstream (Moncine) utilise encore MONCINE_* et moncine.db.
 # Variables fournies par YunoHost : $app, $install_dir, $data_dir, $domain, $path, $php_version, …
 
+# Limites PHP pour imports volumineux (PDF magazines jusqu’à 350 Mo côté application).
+readonly MEDIATHEQUE_PHP_UPLOAD_LIMIT="${MEDIATHEQUE_PHP_UPLOAD_LIMIT:-400M}"
+readonly MEDIATHEQUE_PHP_MEMORY_LIMIT="${MEDIATHEQUE_PHP_MEMORY_LIMIT:-512M}"
+
+# Enregistre les réglages YunoHost et exporte les variables lues par ynh_config_add_phpfpm.
+mediatheque_configure_php_limits() {
+    ynh_app_setting_set --key=php_upload_max_filesize --value="${MEDIATHEQUE_PHP_UPLOAD_LIMIT}"
+    ynh_app_setting_set --key=php_post_max_size --value="${MEDIATHEQUE_PHP_UPLOAD_LIMIT}"
+    ynh_app_setting_set --key=php_memory_limit --value="${MEDIATHEQUE_PHP_MEMORY_LIMIT}"
+
+    php_upload_max_filesize="${MEDIATHEQUE_PHP_UPLOAD_LIMIT}"
+    php_post_max_size="${MEDIATHEQUE_PHP_UPLOAD_LIMIT}"
+    php_memory_limit="${MEDIATHEQUE_PHP_MEMORY_LIMIT}"
+}
+
 # Droits sur data/ et moncine.db (lecture/écriture pour PHP-FPM = utilisateur $app).
 mediatheque_fix_data_permissions() {
     if [[ -z "${data_dir:-}" || ! -d "${data_dir}" ]]; then
@@ -86,6 +101,7 @@ mediatheque_prepare_install_seed_dir() {
 
 # Dossier persistant YunoHost : base SQLite, affiches, médias (hors /var/www).
 mediatheque_prepare_data_dir() {
-    mkdir -p "${data_dir}"/{posters,media,sessions,auth_rate_limit,install_seed}
+    mkdir -p "${data_dir}"/{posters,sessions,auth_rate_limit,install_seed}
+    mkdir -p "${data_dir}/media"/{magazines,objects,books,exports,tmp}
     mediatheque_fix_data_permissions
 }

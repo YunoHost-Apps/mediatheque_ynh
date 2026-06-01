@@ -7,6 +7,7 @@ source /usr/share/yunohost/helpers
 ynh_script_progression "Mise à jour de l’URL de ${app}…"
 
 # MONCINE_BASE_URL est défini dans conf/extra_php-fpm.conf (https://__DOMAIN____PATH__)
+mediatheque_configure_php_limits
 ynh_config_add_phpfpm
 ynh_config_add_nginx
 
