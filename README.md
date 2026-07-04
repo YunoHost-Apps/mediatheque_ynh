@@ -10,7 +10,7 @@ It shall NOT be edited by hand.
 
 Personal media library: movies, wishlist, magazines, video games, books, comics…
 
-[![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://github.com/daryl40000/Moncine)
+[![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://github.com/daryl40000/mediatheque)
 [![Version: 0.7.8~ynh1](https://img.shields.io/badge/Version-0.7.8~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/mediatheque/)
 
 <div align="center">
