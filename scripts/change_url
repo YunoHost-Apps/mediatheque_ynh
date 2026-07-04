@@ -1,10 +1,11 @@
 #!/bin/bash
-# Changement de domaine ou de chemin — paquet YunoHost Médiathèque
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
 
 source _common.sh
 source /usr/share/yunohost/helpers
-
-ynh_script_progression "Mise à jour de l’URL de ${app}…"
 
 #=================================================
 # MODIFY URL IN NGINX CONF
