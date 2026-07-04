@@ -15,16 +15,6 @@ ynh_script_progression "Updating NGINX web server configuration..."
 ynh_config_change_url_nginx
 
 #=================================================
-# SPECIFIC MODIFICATIONS
-#=================================================
-
-# MONCINE_BASE_URL est défini dans conf/extra_php-fpm.conf (https://__DOMAIN____PATH__)
-mediatheque_configure_php_limits
-ynh_config_add_phpfpm
-
-mediatheque_fix_data_permissions
-
-#=================================================
 # END OF SCRIPT
 #=================================================
 
