@@ -10,17 +10,12 @@ It shall NOT be edited by hand.
 
 Personal media library: movies, wishlist, magazines, video games, books, comics…
 
-[![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://github.com/daryl40000/mediatheque)
 [![Version: 0.7.8~ynh1](https://img.shields.io/badge/Version-0.7.8~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/mediatheque/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/mediatheque"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
 <a href="https://github.com/YunoHost-Apps/mediatheque_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
-
-
-## Screenshots
-![Screenshot of Médiathèque](./doc/screenshots/example.jpg)
 
 ## 📦 Developer info
 
