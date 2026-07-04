@@ -18,10 +18,6 @@ Personal media library: movies, wishlist, magazines, video games, books, comics�
 <a href="https://github.com/YunoHost-Apps/mediatheque_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
-
-## Screenshots
-![Screenshot of Médiathèque](./doc/screenshots/example.jpg)
-
 ## 📦 Developer info
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/mediatheque)](https://ci-apps.yunohost.org/ci/apps/mediatheque/)
