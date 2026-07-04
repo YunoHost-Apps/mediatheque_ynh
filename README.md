@@ -26,7 +26,7 @@ Personal media library: movies, wishlist, magazines, video games, books, comics�
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/mediatheque)](https://ci-apps.yunohost.org/ci/apps/mediatheque/)
 
-🛠️ Upstream Médiathèque repository: <https://github.com/daryl40000/mediatheque>
+🛠️ Upstream Médiathèque repository: <https://github.com/daryl40000/Moncine>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/mediatheque_ynh/tree/testing).
 
