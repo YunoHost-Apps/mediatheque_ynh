@@ -41,4 +41,4 @@ The package sets **400M** for `upload_max_filesize` / `post_max_size`, **512M** 
 
 After upgrading the package, check `/etc/php/*/fpm/pool.d/__APP__.conf` that these values are applied.
 
-Upstream docs: [Moncine on GitHub](https://github.com/daryl40000/Moncine)
+Upstream docs: [Moncine on GitHub](https://github.com/daryl40000/mediatheque)
