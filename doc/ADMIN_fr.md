@@ -41,4 +41,4 @@ Le paquet configure **400 Mo** pour `upload_max_filesize` / `post_max_size`, **5
 
 Après une mise à jour du paquet, vérifiez dans `/etc/php/*/fpm/pool.d/__APP__.conf` que ces valeurs sont bien appliquées.
 
-Documentation upstream : [Moncine sur GitHub](https://github.com/daryl40000/Moncine)
+Documentation upstream : [Moncine sur GitHub](https://github.com/daryl40000/mediatheque)
