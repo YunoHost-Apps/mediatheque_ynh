@@ -13,7 +13,6 @@ maintainers = ["Stéphane MATER"]
 
 [upstream]
 license = "GPL-3.0-or-later"
-website = "https://github.com/daryl40000/mediatheque"
 code = "https://github.com/daryl40000/mediatheque"
 
 [integration]
