@@ -13,8 +13,8 @@ maintainers = ["Stéphane MATER"]
 
 [upstream]
 license = "GPL-3.0-or-later"
-website = "https://github.com/daryl40000/Moncine"
-code = "https://github.com/daryl40000/Moncine"
+website = "https://github.com/daryl40000/mediatheque"
+code = "https://github.com/daryl40000/mediatheque"
 
 [integration]
 yunohost = ">= 12.1.17"
