@@ -6,11 +6,26 @@ source /usr/share/yunohost/helpers
 
 ynh_script_progression "Mise à jour de l’URL de ${app}…"
 
+#=================================================
+# MODIFY URL IN NGINX CONF
+#=================================================
+ynh_script_progression "Updating NGINX web server configuration..."
+
+# this will most likely adjust NGINX config correctly
+ynh_config_change_url_nginx
+
+#=================================================
+# SPECIFIC MODIFICATIONS
+#=================================================
+
 # MONCINE_BASE_URL est défini dans conf/extra_php-fpm.conf (https://__DOMAIN____PATH__)
 mediatheque_configure_php_limits
 ynh_config_add_phpfpm
-ynh_config_add_nginx
 
 mediatheque_fix_data_permissions
 
-ynh_script_progression "Changement d’URL terminé."
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression "Change of URL completed for $app"
