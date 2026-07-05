@@ -7,7 +7,7 @@ name = "Médiathèque"
 description.fr = "Médiathèque personnelle : films, envies, magazines, jeux vidéo, livres, BD…"
 description.en = "Personal media library: movies, wishlist, magazines, video games, books, comics…"
 
-version = "0.7.8~ynh1"
+version = "0.7.9~ynh1"
 
 maintainers = ["Stéphane MATER"]
 
@@ -42,8 +42,8 @@ ram.runtime = "100M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/daryl40000/mediatheque/archive/refs/tags/0.7.8.tar.gz"
-    sha256 = "d587f0fa84f8ff8df421a8b33d32d90f20e6a83e7337c1b8731867bc11cf67e1"
+    url = "https://github.com/daryl40000/mediatheque/archive/refs/tags/0.7.9.tar.gz"
+    sha256 = "5f233759c70df519bb5c705e1ccabe29d04301f837143c6cbbf874ca2ee67a19"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
