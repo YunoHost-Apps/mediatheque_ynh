@@ -16,7 +16,7 @@ license = "GPL-3.0-or-later"
 code = "https://github.com/daryl40000/mediatheque"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.40"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -49,7 +49,8 @@ ram.runtime = "100M"
     [resources.system_user]
 
     [resources.install_dir]
-
+    group = "www-data:r-x"
+    
     [resources.data_dir]
     subdirs = ["posters", "media", "sessions", "auth_rate_limit", "install_seed"]
 

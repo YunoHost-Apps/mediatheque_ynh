@@ -4,10 +4,12 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-ynh_script_progression "Téléchargement des sources de l’application…"
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir="$install_dir"
-chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # DONNÉES PERSISTANTES + BASE SQLite
@@ -19,15 +21,18 @@ mediatheque_run_migrate
 mediatheque_apply_install_seed
 
 #=================================================
-# CONFIGURATION SYSTÈME (PHP-FPM + NGINX)
+# SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression "Configuration PHP-FPM et NGINX…"
+ynh_script_progression "Adding system configurations related to $app..."
 
 mediatheque_configure_php_limits
+
 ynh_config_add_phpfpm
+
 ynh_config_add_nginx
 
 #=================================================
-# FIN
+# END OF SCRIPT
 #=================================================
-ynh_script_progression "Installation de ${app} terminée — ouvrez https://${domain}${path}premier-compte.php pour créer l’administrateur."
+
+ynh_script_progression "Installation of $app completed"
