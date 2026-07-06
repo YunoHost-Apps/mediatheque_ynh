@@ -1,16 +1,22 @@
 #!/bin/bash
-# Changement de domaine ou de chemin — paquet YunoHost Médiathèque
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
 
 source _common.sh
 source /usr/share/yunohost/helpers
 
-ynh_script_progression "Mise à jour de l’URL de ${app}…"
+#=================================================
+# MODIFY URL IN NGINX CONF
+#=================================================
+ynh_script_progression "Updating NGINX web server configuration..."
 
-# MONCINE_BASE_URL est défini dans conf/extra_php-fpm.conf (https://__DOMAIN____PATH__)
-mediatheque_configure_php_limits
-ynh_config_add_phpfpm
-ynh_config_add_nginx
+# this will most likely adjust NGINX config correctly
+ynh_config_change_url_nginx
 
-mediatheque_fix_data_permissions
+#=================================================
+# END OF SCRIPT
+#=================================================
 
-ynh_script_progression "Changement d’URL terminé."
+ynh_script_progression "Change of URL completed for $app"
