@@ -1,3 +1,3 @@
 Médiathèque est une **collection personnelle de médias** en ligne : films, envies, notes, enrichissement TMDB, import/export CSV, bibliothèque steam, questionnaire du soir, prêts entre amis, et stockage de fichiers volumineux (magazines, etc.).
 
-Version incluse : **0.7.16** (moteur [mediatheque](https://github.com/daryl40000/mediatheque)).
+Version incluse : **0.7.20** (moteur [mediatheque](https://github.com/daryl40000/mediatheque)).
